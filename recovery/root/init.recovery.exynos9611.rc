@@ -1,7 +1,7 @@
 on fs
     export ANDROID_ROOT /system
 
-    wait /dev/block/platform/${ro.boot.boot_devices}
-    symlink /dev/block/platform/${ro.boot.boot_devices} /dev/block/bootdevice
-    symlink /dev/block/platform/${ro.boot.boot_devices}/by-name /dev/block/by-name
-    symlink /dev/block/platform/${ro.boot.boot_devices}/by-name/param /dev/block/param
+    wait /dev/block/platform/13520000.ufs
+    symlink /dev/block/platform/13520000.ufs /dev/block/bootdevice
+    symlink /dev/block/platform/13520000.ufs/by-name /dev/block/by-name
+    symlink /dev/block/platform/13520000.ufs/by-name/param /dev/block/param
