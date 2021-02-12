@@ -40,7 +40,6 @@ TARGET_NO_RADIOIMAGE := true
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
-
 BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos9611
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version 2 --board SRPSG30B004RU
 
@@ -52,6 +51,7 @@ TARGET_BOARD_PLATFORM_GPU := mali-g72
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_COPY_OUT_VENDOR := vendor
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
