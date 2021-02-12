@@ -11,7 +11,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/a51
+DEVICE_PATH := device/samsung/a51nsxx
 
 # Architecture
 TARGET_ARCH := arm64
@@ -60,8 +60,8 @@ TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 365
 TW_DEFAULT_BRIGHTNESS := 219
-TW_Y_OFFSET := 142
-TW_H_OFFSET := -142
+#TW_Y_OFFSET := 142
+#TW_H_OFFSET := -142
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_EXTRA_LANGUAGES := true
@@ -73,7 +73,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/11_dtbo
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
-PLATFORM_SECURITY_PATCH := 2020-10-01
+PLATFORM_SECURITY_PATCH := 2021-02-01
 
 BOARD_KERNEL_IMAGE_NAME := Image
 
@@ -93,3 +93,7 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 5841633848
 
 #Rsync error fix or Fixing trying to copy non-existance files
 TARGET_COPY_OUT_VENDOR := vendor
+
+#Android 11 details
+#BUILD_ID := RP1A.200720.012
+PLATFORM_VERSION := 11
