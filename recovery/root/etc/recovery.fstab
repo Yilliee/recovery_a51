@@ -2,11 +2,11 @@
 
 # Logical partitions
 #<src>
-/dev/block/mapper/odm					/odm		ext4	flags=backup=0;display="Odm"
-/dev/block/mapper/product				/product	ext4	flags=backup=0;display="Product"
-/dev/block/mapper/system				/system		ext4	flags=backup=0;display="System"
+odm							/odm		ext4
+product							/product	ext4
+system							/system		ext4
 /dev/block/mapper/system				/system_image	emmc	flags=backup=0;display="System Image";flashimg=1
-/dev/block/mapper/vendor				/vendor		ext4	flags=backup=0;display="Vendor"
+vendor							/vendor		ext4
 /dev/block/mapper/vendor				/vendor_image	emmc	flags=backup=0;display="Vendor Image";flashimg=1
 
 # Physical partitions
