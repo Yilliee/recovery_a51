@@ -2,20 +2,20 @@
 
 # Logical partitions
 #<src>
-odm							/odm		ext4
-product							/product	ext4
-system							/system		ext4
+odm							/odm		ext4	ro,barrier=1,discard
+product							/product	ext4	ro,barrier=1,discard
+system							/system		ext4	ro,barrier=1,discard
 /dev/block/mapper/system				/system_image	emmc	flags=backup=0;display="System Image";flashimg=1
-vendor							/vendor		ext4
-/dev/block/mapper/vendor				/vendor_image	emmc	flags=backup=0;display="Vendor Image";flashimg=1
+vendor							/vendor		ext4	ro,barrier=1,discard
+#/dev/block/mapper/vendor				/vendor_image	emmc	flags=backup=0;display="Vendor Image";flashimg=1
 
 # Physical partitions
-/dev/block/platform/13520000.ufs/by-name/boot		/boot		emmc
-/dev/block/platform/13520000.ufs/by-name/misc		/misc		emmc
+/dev/block/platform/13520000.ufs/by-name/boot		/boot		emmc	flags=backup=1;display="Boot Image";flashimg=1
+/dev/block/platform/13520000.ufs/by-name/misc		/misc		emmc	
 /dev/block/platform/13520000.ufs/by-name/radio		/modem		emmc	flags=backup=1;display="Modem"
 /dev/block/platform/13520000.ufs/by-name/recovery	/recovery	emmc	flags=backup=1;display="Recovery";flashimg=1
 /dev/block/platform/13520000.ufs/by-name/cache		/cache		ext4	flags=backup=1;display="Cache"
-/dev/block/platform/13520000.ufs/by-name/userdata	/data		f2fs
+/dev/block/platform/13520000.ufs/by-name/userdata	/data		f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	
 /dev/block/platform/13520000.ufs/by-name/efs		/efs		ext4	flags=backup=1;display="EFS"
 /dev/block/platform/13520000.ufs/by-name/metadata	/metedata	ext4	flags=backup=1;display="Metadata"
 /dev/block/platform/13520000.ufs/by-name/optics		/optics		ext4	flags=backup=0;display="Optics"
@@ -25,6 +25,6 @@ vendor							/vendor		ext4
 /dev/block/platform/13520000.ufs/by-name/sec_efs	/sec_efs	ext4	flags=backup=1;display="Sec EFS"
 
 # Removable storage
-/dev/block/mmcblk0*			/external_sd	vfat	flags=storage;wipeingui;removable
+/dev/block/mmcblk0*					/external_sd	vfat	flags=storage;wipeingui;removable
 /dev/block/sdf*						/usb-otg	vfat	flags=display="USB-OTG";storage;wipeingui;removable
  
