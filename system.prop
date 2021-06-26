@@ -1,2 +1,6 @@
 ro.boot.dynamic_partitions = true
 ro.boot.bootdevice = 13520000.ufs
+ro.adb.secure=0
+ro.debuggable=1
+fbe.metadata.wrappedkey=true
+
