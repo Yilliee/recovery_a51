@@ -38,7 +38,7 @@ odm		/odm		ext4				avb,logical,first_stage_mount
 /data		f2fs	/dev/block/by-name/userdata
 /cache		ext4	/dev/block/by-name/cache		flags=display="Cache";
 /efs		ext4	/dev/block/by-name/efs			flags=backup=1;display="Efs";
-/sec_efs	ext4	/dev/block/by-name/sec_efs		flags=backup=1;display="Sec-Efs;"
+/sec_efs	ext4	/dev/block/by-name/sec_efs		flags=backup=1;display="Sec-Efs";
 /modem		emmc	/dev/block/by-name/radio		flags=backup=1;display="Modem";
 /misc		emmc	/dev/block/by-name/misc
 /dtbo		emmc	/dev/block/by-name/dtbo			flags=display="DTBO-Image";flashimg=1;backup=1;
