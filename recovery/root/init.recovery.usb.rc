@@ -24,6 +24,15 @@ on boot
     setprop sys.usb.ffs.aio_compat 1
     setprop sys.usb.configfs 1
 
+on property:sys.usb.config=none
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/bDeviceClass 0
+
+on property:sys.usb.config=mass_storage,adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable 1
+
 on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/enable 0
     write /config/usb_gadget/g1/idVendor 0x04E8
@@ -48,20 +57,9 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
 on property:sys.usb.config=adb && property:sys.usb.configfs=1
     start adbd
 
-on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb && property:sys.usb.configfs=1
+on property:sys.usb.config=adb
     write /sys/class/android_usb/android0/enable 0
-    write /config/usb_gadget/g1/idVendor 0x04E8
-    write /config/usb_gadget/g1/idProduct 0x685D
-    write /sys/class/android_usb/android0/functions adb
-    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
-on property:sys.usb.ffs.ready=1 && property:sys.usb.config=sideload && property:sys.usb.configfs=1
-    write /sys/class/android_usb/android0/enable 0
-    write /config/usb_gadget/g1/idVendor 0x04E8
-    write /config/usb_gadget/g1/idProduct 0x685D
-    write /sys/class/android_usb/android0/functions adb
-    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
+    /config/usb_gadget/g1/idVendor 0x18d1
+    write /sys/class/android_usb/android0/functions ${sys.usb.config}
+    write /sys/class/android_usb/android0/enable ${service.adb.root}
+    start adbd
