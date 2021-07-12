@@ -49,6 +49,7 @@ odm		/odm		ext4				avb,logical,first_stage_mount
 /vbmeta_system	emmc	/dev/block/by-name/vbmeta		flags=display="Vbmeta-System";backup=1;flashimg=1;
 /vbmeta_samsung	emmc	/dev/block/by-name/vbmeta_samsung	flags=display="Vbmeta-Samsung";backup=1;flashimg=1;
 
-# External Stuff
-/external_sd	vfat	/dev/block/mmcblk0p1 /dev/block/mmcblk0	flags=display="External-SDCard";storage;wipeingui;removable;
-/usb-otg	vfat	/dev/block/sdf1 /dev/block/sdf		flags=display="USB-OTG";storage;wipeingui;removable;
+# Storage Stuff
+/sdcard1	vfat	/dev/block/mmcblk0p1 /dev/block/mmcblk0	flags=fsflags=utf8;display="External-SDCard";storage;wipeingui;removable;
+/usb_otg	vfat	/dev/block/sdf1 /dev/block/sdf		flags=fsflags=utf8;display="USB-OTG";storage;wipeingui;removable;
+/storage	ext4	/data/media/0				flags=display="Internal-Storage";usermrf;backup=1;fsflags="bind";removable;

@@ -36,7 +36,7 @@ odm                                                  /odm            ext4       
 /dev/block/by-name/metadata    /metadata       ext4        defaults                  wait,first_stage_mount
 /dev/block/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	recoveryonly,length=-20480
 /dev/block/by-name/cache       /cache          ext4        defaults                  recoveryonly
-/dev/block/mmcblk0p1                                 /sdcard         vfat       defaults                  recoveryonly
+/dev/block/mmcblk0p1           /sdcard1        vfat       defaults                  recoveryonly
 /dev/block/by-name/sec_efs     /efs            ext4        defaults                  recoveryonly
 /dev/block/by-name/sec_efs     /sec_efs        ext4        defaults                  recoveryonly
 /dev/block/by-name/carrier     /carrier        ext4        defaults                  recoveryonly
