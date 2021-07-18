@@ -57,7 +57,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export OF_FL_PATH1="/system/flashlight"
 		export OF_FL_PATH2=""
 		export OF_FLASHLIGHT_ENABLE=1
-		export FOX_VERSION="R11.1"
+		export FOX_VERSION="R11.1_1"
 		export OF_SCREEN_H="2400"
 		export OF_HIDE_NOTCH=1
 		export OF_CLOCK_POS=1
@@ -73,6 +73,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		export OF_STATUS_INDENT_LEFT="48"
 		export OF_STATUS_INDENT_RIGHT="48"
 		export OF_STATUS_H="98"
+		export OF_USE_GREEN_LED=0
+		export OF_SUPPORT_PRE_FLASH_SCRIPT=1
 
 		#R11
 		export FOX_R11=1
@@ -95,5 +97,3 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		  export | grep "TW_" >> $FOX_BUILD_LOG_FILE
 		fi
 fi
-
-
