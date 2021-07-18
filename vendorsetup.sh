@@ -84,8 +84,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		# run a process after formatting data to work-around MTP issues
 		export OF_RUN_POST_FORMAT_PROCESS=1
 
-		export OF_USE_CUSTOM_MAINTAINER_PIC=1
-		export OF_CUSTOM_MAINTAINER_PIC_PATH="$PWD/device/samsung/a51/maintainer.png"
+		# Custom pic for maintainer's about section info
+		export OF_MAINTAINER_AVATAR="$PWD/device/samsung/a51/maintainer.png"
 
 		# let's see what are our build VARs
 		if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
