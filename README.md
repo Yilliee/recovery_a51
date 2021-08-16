@@ -6,5 +6,5 @@ To build:
 
 ```sh
 . build/envsetup.sh
-lunch omni_a51-eng
+lunch twrp_a51-eng
 mka recoveryimage

@@ -16,3 +16,6 @@ on fs
     symlink /dev/block/platform/13520000.ufs /dev/block/bootdevice
     symlink /dev/block/platform/13520000.ufs/by-name /dev/block/by-name
     symlink /dev/block/platform/13520000.ufs/by-name/param /dev/block/param
+
+on boot
+    setprop sys.usb.config adb
