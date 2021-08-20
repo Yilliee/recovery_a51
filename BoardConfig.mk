@@ -93,3 +93,9 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 5841633848
 
 # Haptics
 TW_USE_SAMSUNG_HAPTICS := true
+
+# PBRP specific flags
+MAINTAINER := Yillie
+PB_TORCH_PATH := /sys/devices/virtual/camera/flash/rear_flash
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_BASH := true
