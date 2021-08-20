@@ -10,9 +10,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-PLATFORM_VERSION := 11
 
-DEVICE_PATH := device/samsung/a51
+# Device codename
+SHRP_DEVICE_CODE := a51
+SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
 
 # Architecture
 TARGET_ARCH := arm64
@@ -39,7 +40,7 @@ TARGET_NO_RADIOIMAGE := true
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image
+TARGET_PREBUILT_KERNEL := $(SHRP_PATH)/prebuilt/Image
 BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos9611
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version 2 --board SRPSG30B004RU
 
@@ -66,11 +67,13 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_EXTRA_LANGUAGES := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_EXCLUDE_BASH := true
+TW_EXCLUDE_NANO := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(SHRP_PATH)/prebuilt/recovery_dtbo
+BOARD_PREBUILT_DTBIMAGE_DIR := $(SHRP_PATH)/prebuilt/dtb
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 PLATFORM_SECURITY_PATCH := 2021-05-01
@@ -93,3 +96,25 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 5841633848
 
 # Haptics
 TW_USE_SAMSUNG_HAPTICS := true
+
+# Maintainer name
+SHRP_MAINTAINER := Yillié
+
+# Recovery Type (for "About" section only)
+SHRP_REC_TYPE := SAR
+
+# Device Type (for "About" section only)
+SHRP_DEVICE_TYPE := A_Only
+
+SHRP_REC := /dev/block/by-name/recovery
+SHRP_EXTERNAL := /external_sd
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_STATUSBAR_RIGHT_PADDING := 48
+SHRP_STATUSBAR_LEFT_PADDING := 48
+SHRP_EXPRESS := true
+
+# custom led paths for flashlight
+SHRP_CUSTOM_FLASHLIGHT := true
+SHRP_FONP_1 := /sys/devices/virtual/camera/flash/rear_flash
+SHRP_FLASH_MAX_BRIGHTNESS := 1 # Value to echo to the flashlight file
