@@ -72,7 +72,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 		#export FOX_USE_XZ_UTILS=1
 		export OF_STATUS_INDENT_LEFT="48"
 		export OF_STATUS_INDENT_RIGHT="48"
-		export OF_STATUS_H="98"
+		export OF_STATUS_H="88"
 		export OF_USE_GREEN_LED=0
 		export OF_SUPPORT_PRE_FLASH_SCRIPT=1
 
