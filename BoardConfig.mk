@@ -108,8 +108,8 @@ SHRP_REC := /dev/block/by-name/recovery
 SHRP_EXTERNAL := /external_sd
 SHRP_OTG := /usb_otg
 SHRP_FLASH := 1
-SHRP_STATUSBAR_RIGHT_PADDING := 48
-SHRP_STATUSBAR_LEFT_PADDING := 48
+SHRP_STATUSBAR_RIGHT_PADDING := 30
+SHRP_STATUSBAR_LEFT_PADDING := 30
 
 # custom led paths for flashlight
 SHRP_CUSTOM_FLASHLIGHT := true
