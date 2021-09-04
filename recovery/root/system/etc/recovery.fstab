@@ -25,39 +25,14 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#<src>                          <mnt_point>    <type>       <mnt_flags and options>           <fs_mgr_flags>
+system                          /system         ext4        ro,barrier=1,discard              avb=vbmeta,logical,first_stage_mount
+vendor                          /vendor         ext4        ro,barrier=1,discard              avb,logical,first_stage_mount
+product                         /product        ext4        ro,barrier=1,discard              avb,logical,first_stage_mount
+odm                             /odm            ext4        ro,barrier=1,discard              avb,logical,first_stage_mount
 
-#<src>                                    <mnt_point>    <type>    <mnt_flags and options>    <fs_mgr_flags>
-system                                               /system         ext4        ro,barrier=1,discard                  avb=vbmeta,logical,first_stage_mount
-vendor                                               /vendor         ext4        ro,barrier=1,discard                  avb,logical,first_stage_mount
-product                                              /product        ext4        ro,barrier=1,discard                  avb,logical,first_stage_mount
-odm                                                  /odm            ext4        ro,barrier=1,discard                  avb,logical,first_stage_mount
-/dev/block/by-name/boot        /boot           emmc        defaults                  recoveryonly
-/dev/block/by-name/recovery    /recovery       emmc        defaults                  recoveryonly
-/dev/block/by-name/metadata    /metadata       ext4        defaults                  wait,first_stage_mount
-/dev/block/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	recoveryonly,length=-20480
-/dev/block/by-name/cache       /cache          ext4        defaults                  recoveryonly
-/dev/block/mmcblk0p1                                 /sdcard         vfat       defaults                  recoveryonly
-/dev/block/by-name/sec_efs     /efs            ext4        defaults                  recoveryonly
-/dev/block/by-name/sec_efs     /sec_efs        ext4        defaults                  recoveryonly
-/dev/block/by-name/carrier     /carrier        ext4        defaults                  recoveryonly
-/dev/block/by-name/hidden      /preload        ext4        defaults                  recoveryonly
-/dev/block/by-name/radio         /modem        emmc     defaults                  recoveryonly
+/dev/block/by-name/metadata     /metadata       ext4        defaults                          wait,first_stage_mount
+/dev/block/by-name/userdata     /data           f2fs        noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678    recoveryonly,length=-20480
 
 # Add misc for GOTA
-/dev/block/by-name/misc        /misc           emmc        defaults                  recoveryonly
-
-# Samsung ODE
-/dev/block/by-name/keydata     /keydata        ext4        defaults                  recoveryonly
-/dev/block/by-name/keyrefuge   /keyrefuge      ext4        defaults                  recoveryonly
-
-#Auto-generated code by FOTA Portal
-/dev/block/by-name/dtbo       /dtbo       emmc        default        recoveryonly
-/dev/block/by-name/prism     /prism        ext4        defaults                  recoveryonly
-/dev/block/by-name/optics     /optics        ext4        defaults                  recoveryonly
-/dev/block/by-name/vbmeta_system	/vbmeta_system	emmc	default	recoveryonly
-/dev/block/by-name/vendor_boot	/vendor_boot	emmc	default	recoveryonly
-/dev/block/by-name/vbmeta_samsung	/vbmeta_samsung	emmc	default	recoveryonly
-
-
-
-
+/dev/block/by-name/misc         /misc           emmc        defaults                          recoveryonly
