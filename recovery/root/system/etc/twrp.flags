@@ -40,6 +40,7 @@
 /prism_image    emmc    /dev/block/by-name/prism                flags=display="Prism Image";backup=1;flashimg=1;
 /optics         ext4    /dev/block/by-name/optics               flags=display="Optics";backup=0;
 /optics_image   emmc    /dev/block/by-name/optics               flags=display="Optics Image";backup=1;flashimg=1;
+/up_param       emmc    /dev/block/by-name/up_param             flags=display="Param";backup=1;flashimg=1;
 /vbmeta_system  emmc    /dev/block/by-name/vbmeta               flags=display="Vbmeta System";backup=1;flashimg=1;
 /vbmeta_samsung emmc    /dev/block/by-name/vbmeta_samsung       flags=display="Vbmeta Samsung";backup=1;flashimg=1;
 
