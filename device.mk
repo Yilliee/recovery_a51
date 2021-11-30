@@ -6,3 +6,5 @@ PRODUCT_PACKAGES += \
     fastbootd \
     android.hardware.fastboot@1.0implmock
 
+# Lpdump
+TW_EXCLUDE_LPDUMP := true
