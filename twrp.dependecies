@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "GitHub",
+    "repository": "Yilliee/recovery_universal9611-common",
+    "target_path": "device/samsung/universal9611-common",
+    "revision": "twrp-11"
+  },
+]
