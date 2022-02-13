@@ -12,3 +12,5 @@ PRODUCT_PACKAGES += \
 # Apex Libraries
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
+
+TW_EXCLUDE_APEX := true
