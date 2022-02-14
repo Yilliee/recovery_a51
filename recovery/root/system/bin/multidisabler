@@ -4,7 +4,31 @@
 #
 # Use this to prime your device after installing TWRP.
 
-if [ "$1" == "execute" ]; then
+   help_screen() {
+      echo "  Multidisabler v3.1 by @ianmacd  ";
+      echo "";
+      echo " - Disables FBE, Vaultkeeper, ProcA, wsm,";
+      echo "   cass, Stock recovery rewrite and patches";
+      echo "   libbluetooth for rooted devices";
+      echo "";
+      echo " - Usage : $0 <option>";
+      echo "";
+      echo " - Options:";
+      echo "    --help                        Print this help screen and quit";
+      echo ".   --all.                          Select all the options supported by the device"
+      echo "    --disable-fbe                 Disable File-based encryption by patching vendor fstab.";
+      echo "    --disable-stockrec-override  Prevent stock recovery from overriding the currently installed one";
+      echo "    --disable-vaultkeeper        Disable VaultKeeper";
+      echo "    --disable-proca              Disable Process Authentication";
+      echo "    --patch-bluetooth-lib         Patch Bluetooth lib to fix connection issues on Android 10";
+      echo "    --disable-wsm               Disable wsm"
+      echo "    --disable-cass               Disable Cass"
+      echo "Examples:";
+      echo "    $0 --all";
+      echo "    $0 --disable-fbe --disable-stockrec-override";
+      echo "";
+      exit 0;
+   }
 
    md5() {
      md5sum -b "$1"
@@ -220,12 +244,14 @@ if [ "$1" == "execute" ]; then
      fi
    }
 
+   if [ -z "$1" ]; then
+      help_screen;
+   fi
+
    echo " "
-#   print_full_bar
    echo "Multi-disabler v3.1 for Samsung devices"
    echo "running Android 9 or later."
    echo "by Ian Macdonald"
-#   print_full_bar
    echo " "
 
    os=$(getprop ro.build.version.release)
@@ -250,7 +276,7 @@ if [ "$1" == "execute" ]; then
      echo " - Could not determine device model."
      fatal=true
    elif [ $major -lt 9 ]; then
-     echo " - This software is incompatible with Android $major."
+     echo " - This script is incompatible with Android $major."
      fatal=true
    fi
    if [ -n "$fatal" ]; then
@@ -286,19 +312,19 @@ if [ "$1" == "execute" ]; then
      exit 3
    fi
 
-   disable_fbe
-   disable_recovery_restoration
+   if [ "$@" == "--disable-fbe" ] || [ "$@" == "--all" ]; then disable_fbe; fi
+   if [ "$@" == "--disable-stockrec-override" ] || [ "$@" == "--all" ]; then disable_recovery_restoration; fi
 
    if [ "$dp" != true ]; then
-     disable_vaultkeeper
-     disable_proca
-     [ $ZIPNAME != ${ZIPNAME/_btfix//} ] && [ $major -gt 9 ] && patch_libbluetooth
+     if [ "$@" == "--disable-vaultkeeper" ] || [ "$@" == "--all" ]; then disable_vaultkeeper; fi
+     if [ "$@" == "--disable-proca" ] || [ "$@" == "--all"  ]; then disable_proca; fi
+     if [ "$@" == "--patch-bluetooth-lib" ] && [ $major -gt 9 ]; then patch_libbluetooth; fi
    fi
 
    if [ $major -gt 9 ]; then
-     disable_wsm
+     if [ "$@" == "--disable-wsm" ] || [ "$@" == "--all" ]; then disable_wsm; fi
      if echo $device | grep -E 'G97([035][FNUW0]|7[BNUW])|N97([05][FNUW0]|6[BNQ0]|1N)|T860|F90(0[FN]|7[BN])|M[23]15F' >/dev/null; then
-       disable_cass
+       if [ "$@" == "--disable-cass" ] || [ "@" == "--all" ]; then disable_cass; fi
      fi
    fi
 
@@ -310,14 +336,3 @@ if [ "$1" == "execute" ]; then
    echo " "
    echo " - Finished."
    echo " "
-
-else
-   echo "  Multidisabler v3.1 by @ianmacd  "
-   echo ""
-   echo " - Disables FBE, Vaultkeeper, ProcA, wsm,"
-   echo "   cass, Stock recovery rewrite and patches"
-   echo "   libbluetooth for rooted devices"
-   echo ""
-   echo " - Usage : multidisabler execute"
-   echo ""
-fi
