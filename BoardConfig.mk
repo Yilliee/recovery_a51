@@ -14,9 +14,15 @@
 DEVICE_PATH := device/samsung/a51
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/zImage
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb
+#BUILD_KERNEL_FROM_SOURCE := true
+ifeq ($(BUILD_KERNEL_FROM_SOURCE), true)
+	TARGET_KERNEL_CONFIG := celicia-rec-a51_defconfig
+	BOARD_DTBO_CFG := $(DEVICE_PATH)/kernel/a51.cfg
+else
+	TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/zImage
+	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+	BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb
+endif
 
 # Inherit from universal9611-common tree
 -include device/samsung/universal9611-common/BoardConfigCommon.mk
