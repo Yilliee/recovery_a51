@@ -11,17 +11,18 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/a51
+SHRP_DEVICE_CODE := a51
+SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
 
 # Kernel
 #BUILD_KERNEL_FROM_SOURCE := true
 ifeq ($(BUILD_KERNEL_FROM_SOURCE), true)
 	TARGET_KERNEL_CONFIG := celicia-rec-a51_defconfig
-	BOARD_DTBO_CFG := $(DEVICE_PATH)/kernel/a51.cfg
+	BOARD_DTBO_CFG := $(SHRP_PATH)/kernel/a51.cfg
 else
-	TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/zImage
-	BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
-	BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb
+	TARGET_PREBUILT_KERNEL := $(SHRP_PATH)/prebuilts/zImage
+	BOARD_PREBUILT_DTBOIMAGE := $(SHRP_PATH)/prebuilts/dtbo.img
+	BOARD_PREBUILT_DTBIMAGE_DIR := $(SHRP_PATH)/prebuilts/dtb
 endif
 
 # Inherit from universal9611-common tree
