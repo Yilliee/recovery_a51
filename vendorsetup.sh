@@ -84,7 +84,7 @@ export_build_vars(){
 	# R11
 	export FOX_R11=1
 	export FOX_BUILD_TYPE=Beta
-	export FOX_VERSION="R11.1_1"
+	export FOX_VERSION="R11.1_2"
 
 	# maximum permissible splash image size
 	# (in kilobytes); do *NOT* increase!
