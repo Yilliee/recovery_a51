@@ -12,3 +12,8 @@ PRODUCT_PACKAGES += \
 # Apex Libraries
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
+
+# Exclude twrp_Apex.cpp
+# As of right now it does not support
+# compressed apexes introduced in Android 12
+TW_EXCLUDE_APEX := true
