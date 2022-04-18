@@ -1,6 +1,9 @@
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
 # Include any options that can't be included in BoardConfig.mk
 $(call inherit-product, device/samsung/a51/device.mk)
 
