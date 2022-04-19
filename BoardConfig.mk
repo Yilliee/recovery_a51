@@ -95,7 +95,7 @@ BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
 TW_USE_SAMSUNG_HAPTICS := true
 
 # PitchBlack Flags
-PB_TORCH_PATH := /sys/devices/virtual/camera/flash/rear_flash
+PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1004
 MAINTAINER := Yillié
 
