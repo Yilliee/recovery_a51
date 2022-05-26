@@ -54,7 +54,7 @@ export_build_vars(){
 	export OF_USE_SYSTEM_FINGERPRINT=1
 	export OF_USE_TWRP_SAR_DETECT=1
 	export OF_QUICK_BACKUP_LIST="/super;/boot;/vbmeta;/vbmeta_samsung;/dtbo;/efs;/sec_efs;/modem"
-	export FOX_DISABLE_APP_MANAGER=1
+	export FOX_ENABLE_APP_MANAGER=1
 	export OF_STATUS_INDENT_LEFT="48"
 	export OF_STATUS_INDENT_RIGHT="48"
 	export OF_STATUS_H="88"
@@ -83,8 +83,8 @@ export_build_vars(){
 
 	# R11
 	export FOX_R11=1
-	export FOX_BUILD_TYPE=Beta
-	export FOX_VERSION="R11.1_2"
+	export FOX_BUILD_TYPE=Stable
+	export FOX_VERSION="R11.1_3"
 
 	# maximum permissible splash image size
 	# (in kilobytes); do *NOT* increase!
