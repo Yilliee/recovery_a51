@@ -65,6 +65,7 @@ export_build_vars(){
 	export OF_ENABLE_LPTOOLS=1
 	export OF_DEVICE_WITHOUT_PERSIST=1
 	export OF_DONT_KEEP_LOG_HISTORY=1
+	export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
 
 	export TARGET_DEVICE_ALT="a51, a51ns, a51nsxx"
 	export OF_TARGET_DEVICES="a51, a51ns, a51nsxx"
