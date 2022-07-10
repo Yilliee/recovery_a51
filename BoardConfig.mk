@@ -16,7 +16,7 @@ DEVICE_PATH := device/samsung/a51
 # Kernel
 #BUILD_KERNEL_FROM_SOURCE := true
 ifeq ($(BUILD_KERNEL_FROM_SOURCE), true)
-	TARGET_KERNEL_CONFIG := celicia-rec-a51_defconfig
+	TARGET_KERNEL_CONFIG := celicia-a51_defconfig
 	BOARD_DTBO_CFG := $(DEVICE_PATH)/kernel/a51.cfg
 else
 	TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/zImage
