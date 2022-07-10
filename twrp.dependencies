@@ -5,4 +5,10 @@
     "target_path": "device/samsung/universal9611-common",
     "branch": "twrp-11"
   },
+  {
+    "remote": "github",
+    "repository": "Yilliee/android_kernel_samsung_exynos9611",
+    "target_path": "kernel/samsung/universal9610",
+    "branch": "Celicia"
+  },
 ]
