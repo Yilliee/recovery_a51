@@ -28,5 +28,8 @@ endif
 BOARD_SUPER_PARTITION_SIZE := 6836715520
 BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := $(BOARD_SUPER_PARTITION_SIZE)
 
+# Status bar vars
+TW_CUSTOM_CPU_POS := 600
+
 # Inherit from universal9611-common tree
 -include device/samsung/universal9611-common/BoardConfigCommon.mk
